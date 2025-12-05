@@ -5,6 +5,7 @@
     <title>Quantum sensors vs inertia sensors in marine navigation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Custom formating for website -->
     <style>
       .table-container {
         max-width: 700px;
@@ -36,7 +37,7 @@
       body {
         font-family: Calibri, Arial, sans-serif;
         margin: 0;
-        background-color: #f5f7fa;
+        background-color: ##001f3f;
       }
       .page-container {
         max-width: 900px;
@@ -399,60 +400,67 @@
       </footer>
 
       <div id="last-updated">Loading last update time...</div>
-      <button onclick="verifyLastUpdatedTime()">
-        Verify Last Modified Time
-      </button>
-
-      <p id="totalWordCount"></p>
-    </div>
-
-    <!-- GitHub last-updated + word count scripts -->
-    <script>
-      async function getLastUpdatedTime() {
-        const username = 'FEPSFY6930285';
-        const repo = 'FY6930285';
-        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
-
-        try {
-          const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-              'Accept': 'application/vnd.github.v3+json'
+        <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
+            Verify Last Modified Time
+        </button>
+    
+        <script>
+            async function getLastUpdatedTime() {
+                const username = 'FEPSFY6930285';
+                const repo = 'FY6930285';
+        
+                const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/vnd.github.v3+json',
+                
+                        }
+            
+                    });
+                    if (!response.ok) {
+                        throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
+                    }
+                    const commits = await response.json();
+            
+                    if (commits && commits.length > 0) {
+                        const lastCommitDate = new Date(commits[0].commit.committer.date);
+               
+                        document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+            
+                    } else {
+                        document.getElementById('last-updated').innerText = 'No commits found in the repository.';
+                    }
+        
+                } catch (error) {
+                    console.error('Error fetching the last updated time:', error);
+                    document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
+        
+                }
+    
             }
-          });
+    
+            async function verifyLastUpdatedTime() {
+                document.getElementById('last-updated').innerText = 'Verifying...';
+                await getLastUpdatedTime();
+                alert("Last modified time has been successfully verified from GitHub API.");
+    
+            }
+    
+            window.onload = getLastUpdatedTime;
 
-          if (!response.ok) {
-            throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
-          }
-
-          const commits = await response.json();
-
-          if (commits && commits.length > 0) {
-            const lastCommitDate = new Date(commits[0].commit.committer.date);
-            document.getElementById('last-updated').innerText =
-              `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
-          } else {
-            document.getElementById('last-updated').innerText = 'No commits found in the repository.';
-          }
-        } catch (error) {
-          console.error('Error fetching the last updated time:', error);
-          document.getElementById('last-updated').innerText =
-            'Error fetching update time. Please check the repository details.';
-        }
-      }
-
-      async function verifyLastUpdatedTime() {
-        document.getElementById('last-updated').innerText = 'Verifying...';
-        await getLastUpdatedTime();
-        alert("Last modified time has been successfully verified from GitHub API.");
-      }
-
-      function displayWordCount(sectionId) {
+        </script>
+    
+    <p id="totalWordCount"></p>
+    <hr>
+    <script>
+      function displayWordCount(sectionId, outputId) {
         const text = document.getElementById(sectionId).textContent;
         const wordArray = text.trim().split(/\s+/);
-        return wordArray.length;
+        const wordCount = wordArray.length;
+        return wordCount;
       }
-
       function displayTotalWordCount() {
         const IntroductionCount = displayWordCount("Introduction_InText");
         const Section1Count = displayWordCount("Section1_InText");
@@ -460,17 +468,11 @@
         const Section3Count = displayWordCount("Section3_InText");
         const Section4Count = displayWordCount("Section4_InText");
         const Section5Count = displayWordCount("Section5_InText");
-        const totalWordCount = IntroductionCount + Section1Count + Section2Count +
-                               Section3Count + Section4Count + Section5Count;
-        document.getElementById("totalWordCount").innerText =
-          `Total word count: ${totalWordCount}`;
+        const totalWordCount = IntroductionCount + Section1Count + Section2Count + Section3Count + Section4Count + Section5Count;
+        document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
       }
-
-      // Call both on load
-      window.onload = function () {
-        getLastUpdatedTime();
-        displayTotalWordCount();
-      };
+      window.onload = displayTotalWordCount;
     </script>
-  </body>
+    </hr>
+</body>
 </html>
