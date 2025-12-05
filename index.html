@@ -5,8 +5,34 @@
     <title>Quantum sensors vs inertia sensors in marine navigation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Simple page styling -->
     <style>
+      .table-container {
+        max-width: 700px;
+        margin: 20px auto;
+        overflow-x: auto;
+      }
+      
+      table.grav-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9em;
+        background: #ffffff;
+      }
+      
+      table.grav-table th, table.grav-table td {
+        border: 1px solid #cccccc;
+        padding: 6px 8px;
+        text-align: center;
+      }
+      
+      table.grav-table th {
+        background: #e8eef7;
+        font-weight: bold;
+      }
+      
+      table.grav-table tr:nth-child(even) {
+        background: #f7f9fc;
+      }
       body {
         font-family: Calibri, Arial, sans-serif;
         margin: 0;
@@ -32,7 +58,6 @@
         line-height: 1.5;
       }
 
-      /* Table of contents */
       table.toc {
         font-family: Arial, sans-serif;
         border-collapse: collapse;
@@ -57,8 +82,6 @@
       table.toc a:hover {
         text-decoration: underline;
       }
-
-      /* Citations as subtle links */
       a.citation {
         color: #004080;
         text-decoration: none;
@@ -105,7 +128,6 @@
       }
     </style>
 
-    <!-- Optional external CSS -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 
@@ -121,7 +143,6 @@
         <hr>
       </header>
 
-      <!-- Table of contents -->
       <table class="toc">
         <tr>
           <th><h3>Table of contents</h3></th>
@@ -219,6 +240,72 @@
         gravimeter is ship-borne, the vessel containing this sensor does not need to rely on external hardware to correct its
         readings, further improving reliability.
       </p>
+
+      <h4>Table 1: Comparison of Atom Gravimeter and Spring Gravimeter Performance</h4>
+      <div class="table-container">
+        <table class="grav-table">
+          <tr>
+            <th rowspan="2">Profile</th>
+            <th rowspan="2">Condition</th>
+            <th colspan="2">Atom gravimeter</th>
+            <th colspan="2">Spring gravimeter</th>
+          </tr>
+          <tr>
+            <th>Mean</th><th>Std.</th>
+            <th>Mean</th><th>Std.</th>
+          </tr>
+          
+          <tr>
+            <td rowspan="3">Calibration profile (9 kn)</td>
+            <td>Forward–Backward</td>
+            <td>0.4</td><td>0.5</td>
+            <td>1.8</td><td>0.9</td>
+          </tr>
+          <tr>
+            <td>Forward–Reference</td>
+            <td>−0.2</td><td>0.5</td>
+            <td>1.2</td><td>1.1</td>
+          </tr>
+          <tr>
+            <td>Backward–Reference</td>
+            <td>−0.6</td><td>0.3</td>
+            <td>−0.5</td><td>0.6</td>
+          </tr>
+          
+          <tr>
+            <td>Meriadezc (9 kn)</td>
+            <td>Crossing points difference</td>
+            <td>0.9</td><td>–</td>
+            <td>1.0</td><td>–</td>
+          </tr>
+          
+          <tr>
+            <td rowspan="2">Douarnenez straight profiles (9 kn)</td>
+            <td>Forward–Backward</td>
+            <td>0.1</td><td>0.2</td>
+            <td>0.1</td><td>0.8</td>
+          </tr>
+          <tr>
+            <td>Crossing points difference</td>
+            <td>0.4</td><td>–</td>
+            <td>1.0</td><td>–</td>
+          </tr>
+          
+          <tr>
+            <td>Douarnenez circular profiles (8 kn)</td>
+            <td>Crossing point difference with regular profile</td>
+            <td>−0.2</td><td>0.5</td>
+            <td>1.0</td><td>1.0</td>
+          </tr>
+          
+          <tr>
+            <td>Douarnenez circular profiles (11 kn)</td>
+            <td>Crossing point difference with regular profile</td>
+            <td>0.3</td><td>0.6</td>
+            <td>2.8</td><td>2.9</td>
+          </tr>
+        </table>
+      </div>
 
       <h3 id="Section4">Limitations</h3>
       <p id="Section4_InText">
