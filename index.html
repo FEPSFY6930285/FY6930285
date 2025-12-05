@@ -54,36 +54,90 @@
       <td><a href="#Introduction">Introduction</td>
     </tr>
     <tr>
-      <td><a href="#Section 1">Section 1</td>
+      <td><a href="#Section 1">Conventional inertia sensors and drift.</td>
     </tr>
     <tr>
-      <td><a href="#Section 2">Section 2</td>
+      <td><a href="#Section 2">Quantum sensors. Advantages and Principles</td>
     </tr>
     <tr>
-      <td><a href="#Section 3">Section 3</td>
+      <td><a href="#Section 3">Comparison analysis.</td>
+    </tr>
+    <tr>
+      <td><a href="#Section 4">Limitations.</td>
+    </tr>
+    <tr>
+      <td><a href="#Section 5">Conclusion.</td>
     </tr>
 
     <tr>
       <td><a href="#References">References</td>
     </tr>
   </table>
-      
+
+    <h3 id="Abstract">Abstract</h3>
+    <pre id ="Abstract_InText">
+      This article’s aim is to see if quantum sensors are a plausible next step in navigation, considering the upsides and downsides of them, in comparison to conventional inertia sensors. 
+        As well as the analysis of an experiment carried out comparing the two.
+    </pre>
+        
     <h3 id="Introduction"Introduction</h3>
     <pre id ="Introduction_InText">
-      Text Text Text!
+      Currently, most marine vehicles use inertial sensors and gyroscopes to track acceleration, rotation and overall orientation of objects. 
+        However, such sensor’s performance degrades over time due to what is called drift, requiring constant calibration to keep good accuracy. 
+        Loss of accuracy could be very detrimental at sea as it would deteriorate safety and performance of the vessel. 
+        The use of quantum sensors could mitigate this problem entirely.
     </pre>
 
-    <h3 id="Section 1">Section 1</h3>
+    <h3 id="Section 1">Conventional inertia sensors and drift.</h3>
         <p id ="Section1_InText">
-            Analysis
+            An inertial navigation system uses accelerometers and gyroscopes to measure linear acceleration and angular velocity, 
+            then uses the data it collects over time to calculate the navigational data of the vessel (Woodman 2007). 
+            Because this data collected over a long period of time, even very small measurement errors pile on exponentially, 
+            increasing the deviation of the reading from the true value over time (Hou et al. 2025; Woodman 2007). 
+            These errors can be cause in inertial sensors by bias instability, scale-factor variation,
+            temperature sensitivity, and electronic noise, which all slowly degrade the device’s accuracy, especially over long use durations (Blum 2023). 
+            These inaccuracies make inertial-only navigation very unreliable without regular external correction or calibration, 
+            which is why INS is often paired with external sources like a satellite (GNSS) to provide corrections on the go. (Kok et al. 2020) 
         </p>
-    <h3 id="Section 2">Section 2</h3>
+    <h3 id="Section 2">Quantum sensors. Advantages and Principles</h3>
         <p id ="Section2_InText">
-            TExT
+            Quantum sensors represent a new class of navigation instruments that rely on the behaviour of atoms rather than mechanical components to measure acceleration, rotation, or gravity. 
+            One of the most used approaches is cold-atom interferometry, in which atoms are cooled and then manipulated with laser pulses so that their wave-like behaviour can be used to detect subtle changes in motion 
+            or gravitational fields, using this data to calculate trajectory and coordinates of the vessel. 
+            Unlike classical inertial sensors, whose performance depends on the precision of manufactured components, atoms of the same material are identical by nature and do not experience mechanical wear. 
+            This gives quantum sensors the potential for long-term stability with far smaller or even non existent drift (Lellouch & Holynski 2025).
+            Recent research and sea trials have demonstrated the practical benefits of the sensors for marine navigation. 
+            The Royal Navy has shown that prototype quantum devices can output correct data even in environments where satellite or GPS signals are limited or intentionally jammed (Royal Navy 2024). 
+            Because quantum sensors can measure real physical quantities rather than relying purely on the use of past motion, they offer a reliable way of reducing cumulative error during long usage.
         </p>
-    <h3 id="Section 3">Section 3</h3>
+    <h3 id="Section 3">Comparison analysis.</h3>
         <p id ="Section3_InText">
-            tExt  
+            Gravity-map matching is a good way of navigation, where local values in gravity are compared to an already existing database. 
+            Gravity map matching has been demonstrated using conventional accelerometers, but it remains challenging due to the low fluctuations in gravity that the hardware is expected to record (Tall 2024). 
+            An experiment carried out by (Bidel et al. 2018), provides a comparison of Atom gravimeter (An example of a vessel-borne quantum sensor) and a traditional spring gravimeter 
+            (A sensor which uses a satellite for corrections) From the table produced after the experiment we can gather this information: 
+            The Atom gravimeter in the Calibration stages of the experiment has a much lower mean error (4.5 times more accurate) as well as lower standard deviation, which would suggest higher stability 
+            (1.8 times more stable) compared to a spring gravimeter. The study was able to achieve sub-mGal ship-borne gravity measurements, which is lower than 0.00001ms^(-2) acceleration reading precision or 
+            gravity reading precision. Allowing for a potential to have sensors with no to zero drift as well as no requirement for calibration. 
+            Following on, as the atom gravimeter is ship-borne that would mean the vessel containing this sensor does not need to rely on an external hardware to correct its readings, further improving reliability. 
+        </p>
+    <h3 id="Section 4">Limitations.</h3>
+        <p id ="Section4_InText">
+            Despite their potential, quantum sensors are still only in early development, and several issues need to be addressed before they can be widely adopted in commercial marine settings. 
+            One of the major issues is that the technology used in quantum devices is usually much more complex and sensitive than classical inertial sensors. 
+            They require stable laser systems, vacuum chambers, and magnetic shielding, all of which must function well aboard a moving vessel. C
+            onstraints on size, weight, and power remain a big issue, especially for platforms such as autonomous underwater vehicles where available space is limited (Tall 2025). 
+            Quantum sensors are also strongly affected by environmental noise and vessel motion. Even though laboratory demonstrations show excellent performance, 
+            real-world conditions are vastly different from lab once, those conditions can disturb the atomic measurements inside the sensors which in turn would decrease accuracy again. 
+            Ongoing research aims to model these effects more accurately, especially for gravity-aided navigation systems, but the conditions are still mostly idealised (Lellouch & Holynski 2025). 
+            Furthermore, although experimental trials are increasing, field data remain limited, making it hard to understand if the advantages of quantum sensors over conventional once are as 
+            overwhelming as we would expect.
+        </p>
+    <h3 id="Section 5">Conclusion.</h3>
+        <p id ="Section5_InText">
+            In conclusion, this paper has highlighted the advantages of quantum sensors over conventional inertia sensors. 
+            Outlining that quantum sensors offer much higher resolution, leading to more accuracy and improved reliability. 
+            Even though the advantages outweigh the disadvantages, the lack of proper knowledge and technology stalls development and commercial use 
         </p>
 
   
@@ -151,8 +205,12 @@
       }
       function displayTotalWordCount() {
         const IntroductionCount = displayWordCount("Introduction_InText");
-        const AnalysisCount = displayWordCount("Analysis_InText");
-        const totalWordCount = IntroductionCount + AnalysisCount;
+        const Section1Count = displayWordCount("Section1_InText");
+        const Section2Count = displayWordCount("Section2_InText");
+        const Section3Count = displayWordCount("Section3_InText");
+        const Section4Count = displayWordCount("Section4_InText");
+        const Section5Count = displayWordCount("Section5_InText");
+        const totalWordCount = IntroductionCount + Section1Count + Section2Count + Section3Count + Section4Count + Section5Count;
         document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
       }
       window.onload = displayTotalWordCount;
