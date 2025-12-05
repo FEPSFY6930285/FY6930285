@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Quantum sensors vs inertia sensors in marine navigation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Simple page styling -->
+    <style>
+      body {
+        font-family: Calibri, Arial, sans-serif;
+        margin: 0;
+        background-color: #f5f7fa;
+      }
+      .page-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #ffffff;
+      }
+      header {
+        text-align: center;
+      }
+      header img {
+        max-width: 100%;
+        height: auto;
+      }
+      h1, h2, h3 {
+        margin-bottom: 0.4em;
+      }
+      p {
+        line-height: 1.5;
+      }
+
+      /* Table of contents */
+      table.toc {
+        font-family: Arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
+        background: #ffffff;
+        box-shadow: 0 0 4px rgba(0,0,0,0.1);
+      }
+      table.toc th, table.toc td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      table.toc tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      table.toc a {
+        text-decoration: none;
+        color: #004080;
+      }
+      table.toc a:hover {
+        text-decoration: underline;
+      }
+
+      /* Citations as subtle links */
+      a.citation {
+        color: #004080;
+        text-decoration: none;
+      }
+      a.citation:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        margin-top: 40px;
+        border-top: 1px solid #cccccc;
+        padding-top: 10px;
+        font-size: 0.95em;
+      }
+      footer ol {
+        padding-left: 20px;
+      }
+      footer li {
+        margin-bottom: 0.5em;
+      }
+
+      #last-updated {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #555;
+      }
+      #totalWordCount {
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      button {
+        display: block;
+        margin: 10px auto;
+        padding: 8px 16px;
+        border: 1px solid #004080;
+        background: #ffffff;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #e6f0ff;
+      }
+    </style>
+
+    <!-- Optional external CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+
+  <body>
+    <div class="page-container">
+
+      <header>
+        <img src="WebBanner2023.png" alt="Banner">
+        <h1><b>ENG0018 Computer Laboratory 2025/26</b></h1>
+        <h2>Student URN: 6930285</h2>
+        <hr>
+        <h2><b>Conference paper: Quantum sensors vs inertia sensors in marine navigation</b></h2>
+        <hr>
+      </header>
+
+      <!-- Table of contents -->
+      <table class="toc">
+        <tr>
+          <th><h3>Table of contents</h3></th>
+        </tr>
+        <tr>
+          <td><a href="#Abstract">Abstract</a></td>
+        </tr>
+        <tr>
+          <td><a href="#Introduction">Introduction</a></td>
+        </tr>
+        <tr>
+          <td><a href="#Section1">Conventional inertia sensors and drift</a></td>
+        </tr>
+        <tr>
+          <td><a href="#Section2">Quantum sensors: advantages and principles</a></td>
+        </tr>
+        <tr>
+          <td><a href="#Section3">Comparison analysis</a></td>
+        </tr>
+        <tr>
+          <td><a href="#Section4">Limitations</a></td>
+        </tr>
+        <tr>
+          <td><a href="#Section5">Conclusion</a></td>
+        </tr>
+        <tr>
+          <td><a href="#References">References</a></td>
+        </tr>
+      </table>
+
+      <h3 id="Abstract">Abstract</h3>
+      <p id="Abstract_InText">
+        This article’s aim is to see if quantum sensors are a plausible next step in navigation, considering the upsides and
+        downsides of them, in comparison to conventional inertia sensors, as well as analysing an experiment comparing the two.
+      </p>
+
+      <h3 id="Introduction">Introduction</h3>
+      <p id="Introduction_InText">
+        Currently, most marine vehicles use inertial sensors and gyroscopes to track acceleration, rotation and overall
+        orientation of objects. However, such sensors’ performance degrades over time due to what is called drift, requiring
+        constant calibration to maintain accuracy. Loss of accuracy can be very detrimental at sea as it deteriorates the
+        safety and performance of the vessel. The use of quantum sensors could mitigate this problem.
+      </p>
+
+      <h3 id="Section1">Conventional inertia sensors and drift</h3>
+      <p id="Section1_InText">
+        An inertial navigation system uses accelerometers and gyroscopes to measure linear acceleration and angular velocity,
+        then uses the data it collects over time to calculate the navigational data of the vessel
+        <a class="citation" href="#ref-woodman-2007">(Woodman 2007)</a>.
+        Because this data is collected over long periods of time, even very small measurement errors pile up,
+        increasing the deviation of the reading from the true value over time
+        <a class="citation" href="#ref-hou-2025">(Hou et al. 2025)</a>
+        <a class="citation" href="#ref-woodman-2007">(Woodman 2007)</a>.
+        These errors can be caused in inertial sensors by bias instability, scale-factor variation,
+        temperature sensitivity, and electronic noise, which all slowly degrade the device’s accuracy,
+        especially over long use durations
+        <a class="citation" href="#ref-blum-2023">(Blum 2023)</a>.
+        These inaccuracies make inertial-only navigation very unreliable without regular external correction or calibration,
+        which is why INS is often paired with external sources like satellites (GNSS) to provide corrections on the go
+        <a class="citation" href="#ref-kok-2020">(Kok et al. 2020)</a>.
+      </p>
+
+      <h3 id="Section2">Quantum sensors: advantages and principles</h3>
+      <p id="Section2_InText">
+        Quantum sensors represent a new class of navigation instruments that rely on the behaviour of atoms rather than
+        mechanical components to measure acceleration, rotation, or gravity. One of the most used approaches is cold-atom
+        interferometry, in which atoms are cooled and then manipulated with laser pulses so that their wave-like behaviour
+        can be used to detect subtle changes in motion or gravitational fields, using this data to calculate trajectory and
+        coordinates of the vessel. Unlike classical inertial sensors, whose performance depends on the precision of
+        manufactured components, atoms of the same material are identical by nature and do not experience mechanical wear.
+        This gives quantum sensors the potential for long-term stability with far smaller or even non-existent drift
+        <a class="citation" href="#ref-lellouch-2025">(Lellouch &amp; Holynski 2025)</a>.
+        Recent research and sea trials have demonstrated the practical benefits of these sensors for marine navigation.
+        The Royal Navy has shown that prototype quantum devices can output correct data even in environments where satellite
+        or GPS signals are limited or intentionally jammed
+        <a class="citation" href="#ref-royalnavy-2024">(Royal Navy 2024)</a>.
+        Because quantum sensors can measure real physical quantities rather than relying purely on past motion,
+        they offer a reliable way of reducing cumulative error during long usage.
+      </p>
+
+      <h3 id="Section3">Comparison analysis</h3>
+      <p id="Section3_InText">
+        Gravity-map matching is a good way of navigation, where local values in gravity are compared to an already existing
+        database. Gravity map matching has been demonstrated using conventional accelerometers, but it remains challenging
+        due to the low fluctuations in gravity that the hardware is expected to record
+        <a class="citation" href="#ref-tall-2025">(Tall 2025)</a>.
+        An experiment carried out by
+        <a class="citation" href="#ref-bidel-2018">(Bidel et al. 2018)</a>
+        provides a comparison of an atom gravimeter (an example of a vessel-borne quantum sensor) and a traditional spring
+        gravimeter. From the table produced after the experiment we can gather that the atom gravimeter in the calibration
+        stages has a much lower mean error (4.5 times more accurate) as well as a lower standard deviation, which suggests
+        higher stability (1.8 times more stable) compared to a spring gravimeter. The study was able to achieve sub-mGal
+        ship-borne gravity measurements, corresponding to an acceleration or gravity precision better than 0.00001 m s<sup>−2</sup>.
+        This allows the potential for sensors with extremely low drift and reduced calibration requirements. Because the atom
+        gravimeter is ship-borne, the vessel containing this sensor does not need to rely on external hardware to correct its
+        readings, further improving reliability.
+      </p>
+
+      <h3 id="Section4">Limitations</h3>
+      <p id="Section4_InText">
+        Despite their potential, quantum sensors are still only in early development, and several issues need to be addressed
+        before they can be widely adopted in commercial marine settings. One of the major issues is that the technology used
+        in quantum devices is usually much more complex and sensitive than classical inertial sensors. They require stable
+        laser systems, vacuum chambers, and magnetic shielding, all of which must function well aboard a moving vessel.
+        Constraints on size, weight, and power remain a big issue, especially for platforms such as autonomous underwater
+        vehicles where available space is limited
+        <a class="citation" href="#ref-tall-2025">(Tall 2025)</a>.
+        Quantum sensors are also strongly affected by environmental noise and vessel motion. Even though laboratory
+        demonstrations show excellent performance, real-world conditions are vastly different from lab ones, and these
+        conditions can disturb the atomic measurements inside the sensors, which in turn decreases accuracy. Ongoing research
+        aims to model these effects more accurately, especially for gravity-aided navigation systems, but the conditions in
+        many simulations are still mostly idealised
+        <a class="citation" href="#ref-lellouch-2025">(Lellouch &amp; Holynski 2025)</a>.
+        Furthermore, although experimental trials are increasing, field data remain limited, making it hard to understand
+        whether the advantages of quantum sensors over conventional ones are as overwhelming as expected.
+      </p>
+
+      <h3 id="Section5">Conclusion</h3>
+      <p id="Section5_InText">
+        In conclusion, this paper has highlighted the advantages of quantum sensors over conventional inertia sensors,
+        outlining that quantum sensors offer much higher resolution, leading to more accuracy and improved reliability.
+        Even though the advantages appear to outweigh the disadvantages, the lack of mature technology and limited field
+        data currently stalls widespread development and commercial use.
+      </p>
+
+      <footer>
+        <h3 id="References">References</h3>
+        <ol>
+          <li id="ref-blum-2023">
+            Blum, M. 2023, <i>Inertial Sensor Performance Revisited</i>, German National Library.
+            Available at:
+            <a href="https://d-nb.info/1286082609/34" target="_blank">https://d-nb.info/1286082609/34</a>.
+          </li>
+          <li id="ref-hou-2025">
+            Hou, Z., Xing, H., Yang, C., Li, Y. &amp; Zhang, X. 2025, ‘A Review of Inertial Positioning Error Suppression and Compensation Methods’,
+            <i>Buildings</i>, 15(21), p. 3904.
+            Available at:
+            <a href="https://www.mdpi.com/2075-5309/15/21/3904" target="_blank">https://www.mdpi.com/2075-5309/15/21/3904</a>.
+          </li>
+          <li id="ref-woodman-2007">
+            Woodman, O.J. 2007, <i>An Introduction to Inertial Navigation</i>, University of Cambridge Computer Laboratory Technical Report No. 696.
+            Available at:
+            <a href="https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-696.pdf" target="_blank">https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-696.pdf</a>.
+          </li>
+          <li id="ref-kok-2020">
+            Kok, M., Hol, J.D. &amp; Schön, T.B. 2020, ‘Inertial sensor technologies for navigation applications: state of the art and future trends’,
+            <i>Sensors</i>, 20(24), p. 7023.
+            Available at:
+            <a href="https://www.mdpi.com/1424-8220/20/24/7023" target="_blank">https://www.mdpi.com/1424-8220/20/24/7023</a>.
+          </li>
+          <li id="ref-bidel-2018">
+            Bidel, Y., Zahzam, N., Blanchard, C., Bonnin, A., Cadoret, M., Bresson, A., Rouxel, D. &amp; Lequentrec-Lalancette, M.F. 2018,
+            ‘Absolute marine gravimetry with matter-wave interferometry’, <i>Nature Communications</i>, vol. 9, article 627.
+            Available at:
+            <a href="https://www.nature.com/articles/s41467-018-03040-2" target="_blank">https://www.nature.com/articles/s41467-018-03040-2</a>.
+          </li>
+          <li id="ref-lellouch-2025">
+            Lellouch, S. &amp; Holynski, M. 2025,
+            <i>Integration of a high-fidelity model of quantum sensors with a map-matching filter for quantum-enhanced navigation</i>, arXiv preprint.
+            Available at:
+            <a href="https://arxiv.org/html/2504.11119v1" target="_blank">https://arxiv.org/html/2504.11119v1</a>.
+          </li>
+          <li id="ref-tall-2025">
+            Tall, J. 2025,
+            <i>Quantum navigation: revolutionising maritime and autonomous vessel technology</i>.
+            Available at:
+            <a href="https://www.mewburn.com/news-insights/quantum-navigation-revolutionising-maritime-and-autonomous-vessel-technology" target="_blank">
+              https://www.mewburn.com/news-insights/quantum-navigation-revolutionising-maritime-and-autonomous-vessel-technology
+            </a>.
+          </li>
+          <li id="ref-royalnavy-2024">
+            Royal Navy 2024, ‘Royal Navy successfully tests quantum sensing technology’, <i>Royal Navy News</i>, 31 October.
+            Available at:
+            <a href="https://www.royalnavy.mod.uk/news/2024/october/31/20241101-royal-navy-successfully-tests-quantum-sensing-technology" target="_blank">
+              https://www.royalnavy.mod.uk/news/2024/october/31/20241101-royal-navy-successfully-tests-quantum-sensing-technology
+            </a>.
+          </li>
+          <li id="ref-skog-2024">
+            Skog, I. et al. 2024,
+            <i>Underwater Quantum Magnetometer Array Aid Inertial Navigation – Feasibility and Challenges</i>, ResearchGate preprint.
+            Available at:
+            <a href="https://www.researchgate.net/publication/397330583_Underwater_Quantum_Magnetometer_Array_Aid_Inertial_Navigation_-_Feasibility_and_Challenges"
+               target="_blank">
+              https://www.researchgate.net/publication/397330583_Underwater_Quantum_Magnetometer_Array_Aid_Inertial_Navigation_-_Feasibility_and_Challenges
+            </a>.
+          </li>
+        </ol>
+      </footer>
+
+      <div id="last-updated">Loading last update time...</div>
+      <button onclick="verifyLastUpdatedTime()">
+        Verify Last Modified Time
+      </button>
+
+      <p id="totalWordCount"></p>
+    </div>
+
+    <!-- GitHub last-updated + word count scripts -->
+    <script>
+      async function getLastUpdatedTime() {
+        const username = 'FEPSFY6930285';
+        const repo = 'FY6930285';
+        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+
+        try {
+          const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/vnd.github.v3+json'
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
+          }
+
+          const commits = await response.json();
+
+          if (commits && commits.length > 0) {
+            const lastCommitDate = new Date(commits[0].commit.committer.date);
+            document.getElementById('last-updated').innerText =
+              `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+          } else {
+            document.getElementById('last-updated').innerText = 'No commits found in the repository.';
+          }
+        } catch (error) {
+          console.error('Error fetching the last updated time:', error);
+          document.getElementById('last-updated').innerText =
+            'Error fetching update time. Please check the repository details.';
+        }
+      }
+
+      async function verifyLastUpdatedTime() {
+        document.getElementById('last-updated').innerText = 'Verifying...';
+        await getLastUpdatedTime();
+        alert("Last modified time has been successfully verified from GitHub API.");
+      }
+
+      function displayWordCount(sectionId) {
+        const text = document.getElementById(sectionId).textContent;
+        const wordArray = text.trim().split(/\s+/);
+        return wordArray.length;
+      }
+
+      function displayTotalWordCount() {
+        const IntroductionCount = displayWordCount("Introduction_InText");
+        const Section1Count = displayWordCount("Section1_InText");
+        const Section2Count = displayWordCount("Section2_InText");
+        const Section3Count = displayWordCount("Section3_InText");
+        const Section4Count = displayWordCount("Section4_InText");
+        const Section5Count = displayWordCount("Section5_InText");
+        const totalWordCount = IntroductionCount + Section1Count + Section2Count +
+                               Section3Count + Section4Count + Section5Count;
+        document.getElementById("totalWordCount").innerText =
+          `Total word count: ${totalWordCount}`;
+      }
+
+      // Call both on load
+      window.onload = function () {
+        getLastUpdatedTime();
+        displayTotalWordCount();
+      };
+    </script>
+  </body>
+</html>
